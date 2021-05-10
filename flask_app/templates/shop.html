@@ -1,0 +1,52 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>
+            Shop
+        </h1>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+     <tr>
+      <th>Item</th>
+      <th>Name</th>
+      <th>Price</th>
+     </tr>
+    </thead>
+    <tbody>         
+    {% for item in items_for_sale %}
+        <tr>
+        <td class="w-25">
+            <img src={{item.image}} class="img-fluid img-thumbnail">
+        </td>
+                <td>
+                    <a href="{{ url_for('store.item_detail', id=item.item_id) }}">
+                        {{item.title}}
+                    </a>
+                </td>
+                    <td>{{item.price}}</td>       
+        </tr>
+    {% endfor %}   
+    </tbody>
+</table>
+
+{% else %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h2>
+            To access exclusive shop, please sign up and/or log in!
+        </h2>
+        <b>
+            <a href="{{ url_for('store.index') }}">
+                Go back to the home page
+            </a>
+        </b>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

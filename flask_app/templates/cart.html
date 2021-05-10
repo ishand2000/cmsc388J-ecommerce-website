@@ -1,0 +1,71 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>
+            Cart
+        </h1>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+     <tr>
+      <th>Item</th>
+      <th>Name</th>
+      <th>Price</th>
+     </tr>
+    </thead>
+    <tbody>         
+    {% for item in items_in_cart %}
+        <tr>
+        <td class="w-25">
+            <img src={{item.image}} class="img-fluid img-thumbnail">
+        </td>
+        <td>
+            <a href="{{ url_for('store.item_detail', id=item.item_id) }}">
+                {{item.title}}
+            </a>
+        </td>
+        <td>{{item.price}}</td>
+        </tr>
+    {% endfor %}   
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <form action="{{ url_for('store.user_cart_place_order') }}" method="post">
+            {{ form2.csrf_token }}
+            <div class="form-group">
+                {{ form2.submit(class="form-control form-control-lg") }}
+            </div>
+        </form>
+        <form action="{{ url_for('store.user_cart_remove') }}" method="post">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.submit(class="form-control form-control-lg") }}
+            </div>
+        </form>
+    </div>
+</div>
+
+{% else %}
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>
+            Please sign up and/or log in to access cart!
+        </h1>
+        <b>
+            <a href="{{ url_for('store.index') }}">
+                Go back to the home page
+            </a>
+        </b>
+    </div>
+</div>
+
+
+{% endif %}
+{% endblock %}

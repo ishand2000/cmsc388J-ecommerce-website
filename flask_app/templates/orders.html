@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <h1>
+            Orders
+        </h1>
+        <h6>
+            All Items From Past Orders
+        </h6>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+     <tr>
+      <th>Item</th>
+      <th>Name</th>
+      <th>Price</th>
+     </tr>
+    </thead>
+    <tbody>         
+    {% for item in i_ordered %}
+        <tr>
+        <td class="w-25">
+            <img src={{item.image}} class="img-fluid img-thumbnail">
+        </td>
+        <td>
+            <a href="{{ url_for('store.item_detail', id=item.item_id) }}">
+                {{item.title}}
+            </a>
+        </td>
+        <td>{{item.price}}</td>
+        </tr>
+    {% endfor %}   
+    </tbody>
+</table>
+
+{% endblock %}
