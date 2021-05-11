@@ -114,7 +114,7 @@ def setup():
     '''
     
     #Item.drop_collection()
-    '''
+    
     res = requests.get("https://fakestoreapi.com/products")
     res_json = res.json()
     for i in res_json:
@@ -129,7 +129,7 @@ def setup():
 
         )
         item.save()
-    '''
+    
     
 
     return "saved"
