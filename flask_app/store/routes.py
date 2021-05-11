@@ -113,7 +113,7 @@ def setup():
     
     '''
     
-    #Item.drop_collection()
+    Item.drop_collection()
     
     res = requests.get("https://fakestoreapi.com/products")
     res_json = res.json()
