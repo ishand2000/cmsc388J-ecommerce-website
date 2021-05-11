@@ -36,7 +36,7 @@ class MovieReviewForm(FlaskForm):
 
 # Add to cart form, submit order form, receive email receipt form ???
 class AddToCartForm(FlaskForm):
-    quantity = IntegerField("Quantity", validators=[InputRequired()])
+    #quantity = IntegerField("Quantity", validators=[InputRequired()])
     submit = SubmitField("Add to Cart")
 
 
