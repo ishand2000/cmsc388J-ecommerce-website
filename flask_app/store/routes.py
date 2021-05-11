@@ -150,7 +150,7 @@ def shop():
     items_available = Item.objects(status=0)
 
     #return render_template("shop.html", info=t)
-    return render_template("shop.html", items_for_sale=items_available)#, products=t)
+    return render_template("shop.html", items_for_sale=items_available)
 
 
 
