@@ -7,6 +7,16 @@
 </div>
 <div class="row">
     <div class="col">
+        <h6>Current Username: {{ current_user.username }}!</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h6>Current Email: {{ current_user.email }}!</h6>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
         <form action="" method="post">
             {{ email_form.csrf_token }}
             <div class="form-group">
