@@ -69,7 +69,7 @@ def create_app(test_config=None):
         'style-src': '*'
     }
     
-    #Talisman(app, content_security_policy=csp)
+    Talisman(app, content_security_policy=csp)
 
 
     return app
