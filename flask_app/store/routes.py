@@ -129,10 +129,10 @@ def setup():
 
         )
         item.save()
-    
+    '''
     
     return redirect(url_for("store.shop"))
-    '''
+    
     #return "saved"
 
 
