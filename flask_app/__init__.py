@@ -45,11 +45,15 @@ def page_not_found(e):
 
 def create_app(test_config=None):
     app = Flask(__name__)
-    app.config["MONGODB_HOST"] = os.getenv("MONGODB_HOST")
+    
 
-    app.config.from_pyfile("config.py", silent=False)
+    #app.config.from_pyfile("config.py", silent=False)
+    '''
     if test_config is not None:
         app.config.update(test_config)
+    '''
+    app.config["SECRET_KEY"] = b'\x020;yr\x91\x11\xbe"\x9d\xc1\x14\x91\xadf\xec'
+    app.config["MONGODB_HOST"] = os.getenv("MONGODB_HOST")
 
     db.init_app(app)
     login_manager.init_app(app)
