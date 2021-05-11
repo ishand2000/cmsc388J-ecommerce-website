@@ -16,6 +16,7 @@ from wtforms.validators import (
 
 from .models import User
 
+'''
 # Remove SearchForm
 class SearchForm(FlaskForm):
     search_query = StringField(
@@ -29,7 +30,7 @@ class MovieReviewForm(FlaskForm):
         "Comment", validators=[InputRequired(), Length(min=5, max=500)]
     )
     submit = SubmitField("Enter Comment")
-
+'''
 
 
 
@@ -76,6 +77,20 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 # Form 3 for Users
+class UpdateEmailForm(FlaskForm):
+    email = StringField(
+        "Email", validators=[InputRequired(), Length(min=1, max=40)]
+    )
+    submit = SubmitField("Update Email")
+
+    def validate_email(self, email):
+        if email.data != current_user.email:
+            user = User.objects(email=email.data).first()
+            if user is not None:
+                raise ValidationError("That email is already in use")
+
+
+'''
 class UpdateUsernameForm(FlaskForm):
     username = StringField(
         "Username", validators=[InputRequired(), Length(min=1, max=40)]
@@ -87,3 +102,4 @@ class UpdateUsernameForm(FlaskForm):
             user = User.objects(username=username.data).first()
             if user is not None:
                 raise ValidationError("That username is already taken")
+'''

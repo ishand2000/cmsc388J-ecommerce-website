@@ -3,13 +3,13 @@
 from flask import Blueprint, render_template, url_for, redirect, request, flash
 from flask_login import current_user
 '''
-from .. import movie_client
-from ..forms import MovieReviewForm, SearchForm, AddToCartForm, RemoveFromCartForm, PlaceOrderForm
-from ..models import User, Review, Item
+#from .. import movie_client
+from ..forms import AddToCartForm, RemoveFromCartForm, PlaceOrderForm
+from ..models import User, Item
 from ..utils import current_time
 
 
-# Added myself
+# New Python Package
 import requests
 
 
