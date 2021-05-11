@@ -169,7 +169,7 @@ def item_detail(id):
         i_id = Item.objects(item_id=id).get()
         i_id.update(added_to_cart_by=current_user._get_current_object())
         i_id.save()
-        #Item.objects.update({ 'item_id' : id}, { '$set': { 'added_to_cart_by' : current_user._get_current_object() } })
+        
 
 
     return render_template("item_detail.html", item=i, form=form)
