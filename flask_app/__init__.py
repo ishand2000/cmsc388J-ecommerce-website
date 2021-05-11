@@ -35,6 +35,14 @@ def page_not_found(e):
     return render_template("404.html"), 404
 
 
+
+
+
+app.config["MONGODB_HOST"] = os.getenv("MONGODB_HOST")
+ 
+
+
+
 def create_app(test_config=None):
     app = Flask(__name__)
 
