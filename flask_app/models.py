@@ -20,14 +20,6 @@ class User(db.Document, UserMixin):
     def get_id(self):
         return self.username
 
-'''
-class Review(db.Document):
-    commenter = db.ReferenceField(User, required=True)
-    content = db.StringField(required=True, min_length=5, max_length=500)
-    date = db.StringField(required=True)
-    imdb_id = db.StringField(required=True, min_length=9, max_length=9)
-    movie_title = db.StringField(required=True, min_length=1, max_length=100)
-'''
 
 class Item(db.Document):
     item_id = db.StringField(required=True, min_length=1, max_length=9)

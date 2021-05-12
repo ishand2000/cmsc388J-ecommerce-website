@@ -25,7 +25,7 @@ login_manager = LoginManager()
 bcrypt = Bcrypt()
 
 
-#from .routes import main
+
 from .users.routes import users
 from .store.routes import store
 
