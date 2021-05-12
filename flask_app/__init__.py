@@ -64,7 +64,7 @@ def create_app(test_config=None):
 
     csp = {
         'default-src': '\'self\'',
-        'img-src': '*.fakestoreapi.com',
+        'img-src': ['*.fakestoreapi.com', '*.pngimage.net'],
         'script-src': ['*', "'unsafe-inline'"],
         'style-src': ['*', "'unsafe-inline'"]
     }
