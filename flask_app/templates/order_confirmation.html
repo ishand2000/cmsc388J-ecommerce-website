@@ -9,6 +9,9 @@
         <h6>
             Successfully Placed Order!
         </h6>
+        <h6>
+            Future order updates will be sent to {{ current_user.email }}
+        </h6>
         <b>
             <a href="{{ url_for('store.index') }}">
                 Go back to the home page
@@ -16,5 +19,6 @@
         </b>
     </div>
 </div>
+
 
 {% endblock %}
