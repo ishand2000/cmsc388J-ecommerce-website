@@ -1,7 +1,3 @@
-'''
-from flask import Blueprint, redirect, url_for, render_template, flash, request
-from flask_login import current_user, login_required, login_user, logout_user
-'''
 from .. import bcrypt
 from ..forms import RegistrationForm, LoginForm, UpdateEmailForm
 from ..models import User
@@ -34,23 +30,10 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 import io
 import base64
-'''
-# local
-from . import bcrypt, movie_client
-from .forms import (
-    SearchForm,
-    MovieReviewForm,
-    RegistrationForm,
-    LoginForm,
-    UpdateUsernameForm,
-)
-from .models import User, Review, load_user
-from .utils import current_time
-'''
+
 users = Blueprint("users", __name__)
 
 
-""" ************ User Management views ************ """
 
 
 @users.route("/register", methods=["GET", "POST"])
@@ -103,7 +86,6 @@ def account():
     email_form = UpdateEmailForm()
 
     if email_form.validate_on_submit():
-        # current_user.username = username_form.username.data
         current_user.modify(email=email_form.email.data)
         current_user.save()
         return redirect(url_for("users.account"))
