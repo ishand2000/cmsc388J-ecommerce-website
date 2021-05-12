@@ -65,8 +65,8 @@ def create_app(test_config=None):
     csp = {
         'default-src': '\'self\'',
         'img-src': '*.fakestoreapi.com',
-        'script-src': '*',
-        'style-src': '*'
+        'script-src': ['*', "'unsafe-inline'"],
+        'style-src': ['*', "'unsafe-inline'"]
     }
     
     Talisman(app, content_security_policy=csp)
