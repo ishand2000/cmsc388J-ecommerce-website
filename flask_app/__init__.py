@@ -17,14 +17,13 @@ from flask_talisman import Talisman
 from datetime import datetime
 import os
 
-# local
-#from .client import MovieClient
+
 
 
 db = MongoEngine()
 login_manager = LoginManager()
 bcrypt = Bcrypt()
-#movie_client = MovieClient(os.environ.get("OMDB_API_KEY"))
+
 
 #from .routes import main
 from .users.routes import users
@@ -41,11 +40,6 @@ def create_app(test_config=None):
     app = Flask(__name__)
     
 
-    #app.config.from_pyfile("config.py", silent=False)
-    '''
-    if test_config is not None:
-        app.config.update(test_config)
-    '''
     app.config["SECRET_KEY"] = b'\x020;yr\x91\x11\xbe"\x9d\xc1\x14\x91\xadf\xec'
     app.config["MONGODB_HOST"] = os.getenv("MONGODB_HOST")
 
